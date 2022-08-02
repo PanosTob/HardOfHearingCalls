@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "HardOfHearingCalls"
-include ":app"
+include(":app")
