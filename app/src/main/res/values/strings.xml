@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HardOfHearingCalls</string>
+
+    <string name="empty" translatable="false" />
+
+    <string name="dialog_action_ok" translatable="false">OK</string>
+</resources>
