@@ -4,4 +4,14 @@
     <string name="empty" translatable="false" />
 
     <string name="dialog_action_ok" translatable="false">OK</string>
+
+    <!-- Register Fragment -->
+    <string name="register_welcome">Welcome To</string>
+    <string name="register_welcome_sub">our teleconferences app for hard of hearing people</string>
+    <string name="register_sign_in_title">Sign in to your account</string>
+    <string name="register_email_input_label" translatable="false">Email</string>
+    <string name="register_password_input_label">Password</string>
+    <string name="register_sign_in_button_text">SIGN IN</string>
+    <string name="register_sign_up_question">Don\'t have an account?</string>
+    <string name="register_sign_up_button_text">SIGN UP</string>
 </resources>

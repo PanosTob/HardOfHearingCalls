@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HardOfHearingCalls</string>
+
+    <!-- Register Fragment -->
+    <string name="register_welcome">Καλώς ορίσατε στην</string>
+    <string name="register_welcome_sub">εφαρμογή τηλεδιασκέψεων για βαρήκοους</string>
+    <string name="register_sign_in_title">Συνδεθείτε στον λογαριασμό σας</string>
+    <string name="register_password_input_label">Κωδικός</string>
+    <string name="register_sign_in_button_text">ΣΥΝΔΕΣΗ</string>
+    <string name="register_sign_up_question">Δεν έχετε λογαριασμό;</string>
+    <string name="register_sign_up_button_text">ΕΓΓΡΑΦΗ</string>
+</resources>
