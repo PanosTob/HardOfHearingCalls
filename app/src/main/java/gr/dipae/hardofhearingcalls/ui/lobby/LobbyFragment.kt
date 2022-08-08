@@ -1,4 +1,4 @@
-package gr.dipae.hardofhearingcalls.ui.onboarding
+package gr.dipae.hardofhearingcalls.ui.lobby
 
 import android.os.Bundle
 import android.view.View
@@ -9,14 +9,14 @@ import androidx.navigation.fragment.findNavController
 import gr.dipae.hardofhearingcalls.R
 import gr.dipae.hardofhearingcalls.databinding.FragmentComposeBinding
 import gr.dipae.hardofhearingcalls.ui.base.BaseFragment
-import gr.dipae.hardofhearingcalls.ui.login.compose.LoginScreen
+import gr.dipae.hardofhearingcalls.ui.lobby.compose.LobbyScreen
 import gr.dipae.hardofhearingcalls.ui.theme.HardOfHearingCallsTheme
 import gr.dipae.hardofhearingcalls.utils.ext.safeNavigate
 
-class RegisterFragment : BaseFragment<FragmentComposeBinding>() {
+class LobbyFragment: BaseFragment<FragmentComposeBinding>() {
     override fun getViewBinding(): FragmentComposeBinding = FragmentComposeBinding.inflate(layoutInflater)
 
-    private val viewModel: RegisterViewModel by viewModels()
+    private val viewModel: LobbyViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,23 +27,18 @@ class RegisterFragment : BaseFragment<FragmentComposeBinding>() {
     private fun setupViews() {
         binding.composeView.setContent {
             HardOfHearingCallsTheme {
-                RegisterScreen(viewModel)
+                LobbyScreen(viewModel = viewModel)
             }
         }
     }
 
     private fun setupObservers() {
         with(viewModel) {
-            navigateUi.observe(viewLifecycleOwner, Observer(::navigate))
-            navigateBack.observe(viewLifecycleOwner, Observer(::navigateBack))
+            navigate.observe(viewLifecycleOwner, Observer(::navigate))
         }
     }
 
     private fun navigate(navDirections: NavDirections) {
-        findNavController().safeNavigate(navDirections, R.id.registerFragment)
-    }
-
-    private fun navigateBack(unit: Unit) {
-        findNavController().navigateUp()
+        findNavController().safeNavigate(navDirections, R.id.lobbyFragment)
     }
 }

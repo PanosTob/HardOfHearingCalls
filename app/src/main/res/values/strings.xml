@@ -5,13 +5,28 @@
 
     <string name="dialog_action_ok" translatable="false">OK</string>
 
+    <!-- Login Fragment -->
+    <string name="login_welcome">Welcome To</string>
+    <string name="login_welcome_sub">our teleconferences app for hard of hearing people</string>
+    <string name="login_sign_in_title">Sign in to your account</string>
+    <string name="login_email_input_label" translatable="false">Email</string>
+    <string name="login_password_input_label">Password</string>
+    <string name="login_sign_in_button_text">SIGN IN</string>
+    <string name="login_sign_up_question">Don\'t have an account?</string>
+    <string name="login_sign_up_button_text">SIGN UP</string>
+    <string name="login_email_placeholder_text" translatable="false">youremail@example.com</string>
+    <string name="login_password_placeholder_text" translatable="false">....</string>
+
     <!-- Register Fragment -->
-    <string name="register_welcome">Welcome To</string>
-    <string name="register_welcome_sub">our teleconferences app for hard of hearing people</string>
-    <string name="register_sign_in_title">Sign in to your account</string>
-    <string name="register_email_input_label" translatable="false">Email</string>
-    <string name="register_password_input_label">Password</string>
+    <string name="register_title">Sign up to join and host video calls anytime you want!</string>
+    <string name="register_first_name_label">First Name</string>
+    <string name="register_last_name_label">Last Name</string>
+    <string name="register_email_label" translatable="false">Email</string>
+    <string name="register_password_label">Password</string>
+    <string name="register_confirm_password_label">Confirm Password</string>
+    <string name="register_sign_in_question">Already have an account?</string>
     <string name="register_sign_in_button_text">SIGN IN</string>
-    <string name="register_sign_up_question">Don\'t have an account?</string>
-    <string name="register_sign_up_button_text">SIGN UP</string>
+
+    <!-- Lobby Fragment -->
+    <string name="lobby_empty_view_text">You have no contacts online to call</string>
 </resources>

@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.Observer
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navArgument
 import androidx.navigation.navGraphViewModels
 import dagger.hilt.android.AndroidEntryPoint
 import gr.dipae.hardofhearingcalls.R
@@ -21,12 +23,6 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     private val viewModel: SplashViewModel by navGraphViewModels(R.id.nav_splash_graph) { defaultViewModelProviderFactory }
 
     override fun getViewBinding(): FragmentSplashBinding = FragmentSplashBinding.inflate(layoutInflater)
-
-    override fun getStatusBarType(): StatusBarType = StatusBarType.LIGHT
-
-    override fun drawBehindSystemUI(): Boolean = true
-
-    override fun isFullscreen(): Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +44,9 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
     private fun setupObservers() {
         with(viewModel) {
+            navigateUI.observe(viewLifecycleOwner, Observer(::navigate))
+
+            initSplash()
         }
     }
 

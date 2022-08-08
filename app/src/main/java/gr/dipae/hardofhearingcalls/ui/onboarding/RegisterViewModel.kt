@@ -12,10 +12,17 @@ class RegisterViewModel @Inject constructor(
 
 ): BaseViewModel() {
 
-    private val _navigateUi = SingleLiveEvent<NavDirections>()
-    val navigateUi: LiveData<NavDirections> = _navigateUi
+    private val _navigate = SingleLiveEvent<NavDirections>()
+    val navigateUi: LiveData<NavDirections> = _navigate
+
+    private val _navigateBack = SingleLiveEvent<Unit>()
+    val navigateBack: LiveData<Unit> = _navigateBack
 
     fun initRegister() {
 
+    }
+
+    fun handleLoginClicked() {
+        _navigateBack.value = Unit
     }
 }

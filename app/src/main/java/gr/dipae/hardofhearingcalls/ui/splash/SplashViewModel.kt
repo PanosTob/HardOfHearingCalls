@@ -17,5 +17,9 @@ class SplashViewModel @Inject constructor(
     val navigateUI: LiveData<NavDirections> = _navigateUI
 
     fun initSplash() {
+        launchWithProgress {
+            delay(1500)
+            _navigateUI.value = SplashFragmentDirections.actionSplashToLogin()
+        }
     }
 }

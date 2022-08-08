@@ -3,11 +3,24 @@
     <string name="app_name">HardOfHearingCalls</string>
 
     <!-- Register Fragment -->
-    <string name="register_welcome">Καλώς ορίσατε στην</string>
-    <string name="register_welcome_sub">εφαρμογή τηλεδιασκέψεων για βαρήκοους</string>
-    <string name="register_sign_in_title">Συνδεθείτε στον λογαριασμό σας</string>
-    <string name="register_password_input_label">Κωδικός</string>
+    <string name="login_welcome">Καλώς ορίσατε στην</string>
+    <string name="login_welcome_sub">εφαρμογή τηλεδιασκέψεων για βαρήκοους</string>
+    <string name="login_sign_in_title">Συνδεθείτε στον λογαριασμό σας</string>
+    <string name="login_password_input_label">Κωδικός</string>
+    <string name="login_sign_in_button_text">ΣΥΝΔΕΣΗ</string>
+    <string name="login_sign_up_question">Δεν έχετε λογαριασμό;</string>
+    <string name="login_sign_up_button_text">ΕΓΓΡΑΦΗ</string>
+
+    <!-- Register Fragment -->
+    <string name="register_title">Κάντε εγγραφή για να κάνετε βιντεοκλήση όποτε θέλετε!</string>
+    <string name="register_first_name_label">Όνομα</string>
+    <string name="register_last_name_label">Επώνυμο</string>
+    <string name="register_email_label" translatable="false">Email</string>
+    <string name="register_password_label">Κώδικος</string>
+    <string name="register_confirm_password_label">Επιβεβαίωση κωδικού</string>
+    <string name="register_sign_in_question">Έχετε ήδη λογαριασμό;</string>
     <string name="register_sign_in_button_text">ΣΥΝΔΕΣΗ</string>
-    <string name="register_sign_up_question">Δεν έχετε λογαριασμό;</string>
-    <string name="register_sign_up_button_text">ΕΓΓΡΑΦΗ</string>
+
+    <!-- Lobby Fragment -->
+    <string name="lobby_empty_view_text">Δεν υπάρχουν ενεργές επαφές για κλήση</string>
 </resources>

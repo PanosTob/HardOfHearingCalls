@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_login"
+    app:startDestination="@+id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="gr.dipae.hardofhearingcalls.ui.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_compose">
+        <action
+            android:id="@+id/action_login_to_onboarding"
+            app:destination="@id/nav_graph_onboarding"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
+    <include
+        android:id="@+id/nav_graph_onboarding"
+        app:graph="@navigation/nav_graph_onboarding" />
+</navigation>
