@@ -10,4 +10,15 @@
         android:label="LoginFragment"
         tools:layout="@layout/fragment_compose" />
 
+    <fragment
+        android:id="@+id/outgoingCallFragment"
+        android:name="gr.dipae.hardofhearingcalls.ui.call.outgoing.OutgoingCallFragment"
+        android:label="OutgoingCallFragment"
+        tools:layout="@layout/fragment_compose" />
+
+    <fragment
+        android:id="@+id/receivingCallFragment"
+        android:name="gr.dipae.hardofhearingcalls.ui.call.receiving.ReceivingCallFragment"
+        android:label="ReceivingCallFragment"
+        tools:layout="@layout/fragment_compose" />
 </navigation>
