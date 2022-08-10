@@ -1,4 +1,4 @@
-package gr.dipae.hardofhearingcalls.ui.call.receiving
+package gr.dipae.hardofhearingcalls.ui.call.incoming
 
 import android.os.Bundle
 import android.view.View
@@ -9,17 +9,14 @@ import androidx.navigation.fragment.findNavController
 import gr.dipae.hardofhearingcalls.R
 import gr.dipae.hardofhearingcalls.databinding.FragmentComposeBinding
 import gr.dipae.hardofhearingcalls.ui.base.BaseFragment
-import gr.dipae.hardofhearingcalls.ui.call.outgoing.OutgoingCallViewModel
-import gr.dipae.hardofhearingcalls.ui.call.outgoing.compose.OutgoingCallScreen
-import gr.dipae.hardofhearingcalls.ui.call.receiving.compose.ReceivingCallContent
-import gr.dipae.hardofhearingcalls.ui.call.receiving.compose.ReceivingCallScreen
+import gr.dipae.hardofhearingcalls.ui.call.incoming.compose.IncomingCallScreen
 import gr.dipae.hardofhearingcalls.ui.theme.HardOfHearingCallsTheme
 import gr.dipae.hardofhearingcalls.utils.ext.safeNavigate
 
-class ReceivingCallFragment: BaseFragment<FragmentComposeBinding>() {
+class IncomingCallFragment: BaseFragment<FragmentComposeBinding>() {
     override fun getViewBinding(): FragmentComposeBinding = FragmentComposeBinding.inflate(layoutInflater)
 
-    private val viewModel: ReceivingCallViewModel by viewModels()
+    private val viewModel: IncomingCallViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,7 +27,7 @@ class ReceivingCallFragment: BaseFragment<FragmentComposeBinding>() {
     private fun setupViews() {
         binding.composeView.setContent {
             HardOfHearingCallsTheme {
-                ReceivingCallScreen(viewModel = viewModel)
+                IncomingCallScreen(viewModel = viewModel)
             }
         }
     }
@@ -39,7 +36,7 @@ class ReceivingCallFragment: BaseFragment<FragmentComposeBinding>() {
         with(viewModel) {
             navigate.observe(viewLifecycleOwner, Observer(::navigate))
 
-            initReceivingCall()
+            initIncomingCall()
         }
     }
 

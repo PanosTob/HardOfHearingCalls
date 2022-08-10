@@ -7,6 +7,7 @@ buildscript {
 
     repositories {
         google()
+        maven(url = "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases")
         mavenCentral()
     }
 

@@ -71,6 +71,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.8.0")
     implementation("androidx.appcompat:appcompat:1.4.2")
     implementation("com.google.android.material:material:1.6.1")
+    implementation("androidx.camera:camera-view:1.1.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
@@ -113,4 +114,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-pager-indicators:$accompanist_version")
     implementation("com.google.accompanist:accompanist-swiperefresh:$accompanist_version")
     implementation("com.google.accompanist:accompanist-flowlayout:$accompanist_version")
+
+    val jitsiVersion by extra { "6.0.0" }
+    implementation("org.jitsi.react:jitsi-meet-sdk:$jitsiVersion") { isTransitive = true }
 }

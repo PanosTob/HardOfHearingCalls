@@ -29,4 +29,10 @@
 
     <!-- Lobby Fragment -->
     <string name="lobby_empty_view_text">You have no contacts online to call</string>
+    
+    <!-- Outgoing Call Fragment -->
+    <string name="outgoing_call_title">Outgoing Call</string>
+
+    <!-- Incoming Call Fragment -->
+    <string name="incoming_call_title">Incoming Call</string>
 </resources>

@@ -1,4 +1,4 @@
-package gr.dipae.hardofhearingcalls.ui.call.outgoing.compose
+package gr.dipae.hardofhearingcalls.ui.call.incoming.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,19 +20,19 @@ import androidx.compose.ui.unit.sp
 import gr.dipae.hardofhearingcalls.R
 import gr.dipae.hardofhearingcalls.domain.lobby.entity.Contact
 import gr.dipae.hardofhearingcalls.ui.base.compose.VerticalSpacerQuarter
-import gr.dipae.hardofhearingcalls.ui.call.outgoing.OutgoingCallViewModel
+import gr.dipae.hardofhearingcalls.ui.call.incoming.IncomingCallViewModel
 import gr.dipae.hardofhearingcalls.ui.theme.*
 import gr.dipae.hardofhearingcalls.utils.compose.AutoSizeText
 
 @Composable
-fun OutgoingCallScreen(viewModel: OutgoingCallViewModel) {
+fun IncomingCallScreen(viewModel: IncomingCallViewModel) {
     val contact by viewModel.contact.observeAsState()
 
-    OutgoingCallContent(contact)
+    IncomingCallContent(contact = contact)
 }
 
 @Composable
-fun OutgoingCallContent(
+fun IncomingCallContent(
     contact: Contact?
 ) {
     contact?.let {
@@ -57,7 +57,7 @@ fun OutgoingCallContent(
                     contentDescription = ""
                 )
                 VerticalSpacerQuarter()
-                Text(stringResource(id = R.string.outgoing_call_title, backgroundColor))
+                Text(stringResource(id = R.string.incoming_call_title, backgroundColor))
             }
 
             Column(Modifier.align(Alignment.Center)) {
@@ -73,22 +73,44 @@ fun OutgoingCallContent(
                 Text(text = contact.email, fontWeight = FontWeight.Normal)
             }
 
-            Box(
-                Modifier
-                    .fillMaxWidth(0.2f)
-                    .aspectRatio(1f)
-                    .background(Color.Red, CircleShape)
-                    .padding(SpacingQuarter_4dp)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                Icon(
-                    modifier = Modifier
-                        .fillMaxSize()
+                Box(
+                    Modifier
+                        .fillMaxWidth(0.2f)
                         .aspectRatio(1f)
-                        .clickable {},
-                    painter = painterResource(id = R.drawable.ic_close),
-                    tint = backgroundColor,
-                    contentDescription = ""
-                )
+                        .background(Color.Green, CircleShape)
+                        .padding(SpacingQuarter_4dp)
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .aspectRatio(1f)
+                            .clickable {},
+                        painter = painterResource(id = R.drawable.ic_check),
+                        tint = backgroundColor,
+                        contentDescription = ""
+                    )
+                }
+                Box(
+                    Modifier
+                        .fillMaxWidth(0.2f)
+                        .aspectRatio(1f)
+                        .background(Color.Red, CircleShape)
+                        .padding(SpacingQuarter_4dp)
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .aspectRatio(1f)
+                            .clickable {},
+                        painter = painterResource(id = R.drawable.ic_close),
+                        tint = backgroundColor,
+                        contentDescription = ""
+                    )
+                }
             }
         }
     }

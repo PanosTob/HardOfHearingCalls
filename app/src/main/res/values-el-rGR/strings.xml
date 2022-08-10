@@ -23,4 +23,10 @@
 
     <!-- Lobby Fragment -->
     <string name="lobby_empty_view_text">Δεν υπάρχουν ενεργές επαφές για κλήση</string>
+
+    <!-- Outgoing Call Fragment -->
+    <string name="outgoing_call_title">Εξερχόμενη κλήση</string>
+
+    <!-- Receiving Call Fragment -->
+    <string name="incoming_call_title">Εισερχόμενη κλήση</string>
 </resources>

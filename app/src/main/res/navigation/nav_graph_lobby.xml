@@ -17,8 +17,10 @@
         tools:layout="@layout/fragment_compose" />
 
     <fragment
-        android:id="@+id/receivingCallFragment"
-        android:name="gr.dipae.hardofhearingcalls.ui.call.receiving.ReceivingCallFragment"
+        android:id="@+id/incomingCallFragment"
+        android:name="gr.dipae.hardofhearingcalls.ui.call.incoming.IncomingCallFragment"
         android:label="ReceivingCallFragment"
         tools:layout="@layout/fragment_compose" />
+
+
 </navigation>

@@ -65,6 +65,7 @@ fun ContactItem(
     Row(
         Modifier
             .fillMaxWidth()
+            .aspectRatio(1f)
             .padding(vertical = SpacingHalf_8dp, horizontal = SpacingDefault_16dp),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
@@ -81,6 +82,7 @@ fun ContactItem(
         }
         Icon(modifier = Modifier
             .fillMaxWidth(0.1f)
+            .aspectRatio(1f)
             .clickable { onItemClicked(item) }, painter = painterResource(id = R.drawable.ic_camera), contentDescription = "")
     }
     Divider(color = ColorDivider)
