@@ -19,10 +19,14 @@ class AppActivity : BaseActivity<ActivityAppBinding>() {
 
     private fun setupViews() {
         with(binding) {
+            val view = org.
         }
     }
 
     private fun setupObservers() {
     }
 
+    /*fun setupJitsiMeetOptions() {
+        val defaultOptions = JitsiMeetConf
+    }*/
 }

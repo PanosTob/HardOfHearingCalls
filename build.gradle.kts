@@ -7,7 +7,6 @@ buildscript {
 
     repositories {
         google()
-        maven(url = "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases")
         mavenCentral()
     }
 
@@ -16,6 +15,15 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
         classpath("com.google.dagger:hilt-android-gradle-plugin:$hiltVersion")
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navVersion")
+    }
+}
+
+allprojects {
+    repositories {
+        maven(url = "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases")
+        google()
+        mavenCentral()
+        maven(url = "https://www.jitpack.io")
     }
 }
 
