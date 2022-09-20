@@ -8,6 +8,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import gr.dipae.hardofhearingcalls.R
 import gr.dipae.hardofhearingcalls.databinding.FragmentComposeBinding
+import gr.dipae.hardofhearingcalls.ui.app.AppActivity
 import gr.dipae.hardofhearingcalls.ui.base.BaseFragment
 import gr.dipae.hardofhearingcalls.ui.lobby.compose.LobbyScreen
 import gr.dipae.hardofhearingcalls.ui.theme.HardOfHearingCallsTheme
@@ -18,6 +19,10 @@ class LobbyFragment: BaseFragment<FragmentComposeBinding>() {
 
     private val viewModel: LobbyViewModel by viewModels()
 
+    override fun onStart() {
+        super.onStart()
+        (activity as? AppActivity)?.handleVideoPermissions()
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObservers()
