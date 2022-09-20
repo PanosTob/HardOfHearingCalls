@@ -23,17 +23,5 @@ fun VideoTranslationContent() {
             ),
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-        /*AndroidView(
-            factory = { context ->
-                JitsiMeetView(context)
-                val options: JitsiMeetConferenceOptions = Builder()
-                    .setRoom("https://meet.jit.si/test123")
-                    .build()
-                view.join(options)
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f)
-        )*/
     }
 }

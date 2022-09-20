@@ -20,7 +20,6 @@ buildscript {
 
 allprojects {
     repositories {
-        maven(url = "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases")
         google()
         mavenCentral()
         maven(url = "https://www.jitpack.io")

@@ -113,7 +113,4 @@ dependencies {
     implementation("com.google.accompanist:accompanist-pager-indicators:$accompanistVersion")
     implementation("com.google.accompanist:accompanist-swiperefresh:$accompanistVersion")
     implementation("com.google.accompanist:accompanist-flowlayout:$accompanistVersion")
-
-    val jitsiVersion by extra { "6.0.0" }
-    implementation("org.jitsi:jitsi-meet-sdk:+") { isTransitive = true }
 }
