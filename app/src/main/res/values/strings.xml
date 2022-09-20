@@ -5,6 +5,9 @@
 
     <string name="dialog_action_ok" translatable="false">OK</string>
 
+    <!-- App Activity -->
+    <string name="app_rtc_engine_error">Unfortunately something went wrong with joining the communication channel</string>
+
     <!-- Login Fragment -->
     <string name="login_welcome">Welcome To</string>
     <string name="login_welcome_sub">our teleconferences app for hard of hearing people</string>

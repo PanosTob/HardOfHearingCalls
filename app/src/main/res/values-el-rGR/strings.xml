@@ -2,6 +2,9 @@
 <resources>
     <string name="app_name">HardOfHearingCalls</string>
 
+    <!-- App Activity -->
+    <string name="app_rtc_engine_error">Δυστυχώς κάτι πήγε στραβά με την σύνδεση στα κανάλι επικοινωνίας</string>
+
     <!-- Register Fragment -->
     <string name="login_welcome">Καλώς ορίσατε στην</string>
     <string name="login_welcome_sub">εφαρμογή τηλεδιασκέψεων για βαρήκοους</string>
