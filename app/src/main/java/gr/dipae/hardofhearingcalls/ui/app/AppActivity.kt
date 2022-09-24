@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 import gr.dipae.hardofhearingcalls.R
 import gr.dipae.hardofhearingcalls.databinding.ActivityAppBinding
@@ -36,21 +37,13 @@ class AppActivity : BaseActivity<ActivityAppBinding>() {
         onNewIntent(intent)
         setupViews()
         setupObservers()
-    }
-
-    private val mRtcEventHandler = object : IRtcEngineEventHandler() {
-        // Listen for the remote user joining the channel to get the uid of the user.
-        override fun onUserJoined(uid: Int, elapsed: Int) {
-            runOnUiThread {
-                // Call setupRemoteVideo to set the remote video view after getting uid from the onUserJoined callback.
-                viewModel.setupRemoteVideo(uid)
-            }
-        }
+        // If all the permissions are granted, initialize the RtcEngine object and join a channel.
+        checkSelfPermission(Manifest.permission.RECORD_AUDIO, PERMISSION_REQ_ID_RECORD_AUDIO)
+        checkSelfPermission(Manifest.permission.CAMERA, PERMISSION_REQ_ID_CAMERA)
     }
 
     private fun setupViews() {
         with(binding) {
-
         }
     }
 
@@ -71,35 +64,5 @@ class AppActivity : BaseActivity<ActivityAppBinding>() {
             return false
         }
         return true
-    }
-
-    private fun initializeAndJoinChannel() {
-        try {
-            mRtcEngine = RtcEngine.create(baseContext, APP_ID, mRtcEventHandler)
-        } catch (e: Exception) {
-            Toast.makeText(this, getString(R.string.app_rtc_engine_error), Toast.LENGTH_LONG).show()
-        }
-
-        // By default, video is disabled, and you need to call enableVideo to start a video stream.
-        mRtcEngine!!.enableVideo()
-
-        val localContainer = findViewById<FrameLayout>(R.id.local_video_view_container)
-        // Call CreateRendererView to create a SurfaceView object and add it as a child to the FrameLayout.
-        val localFrame = RtcEngine.CreateRendererView(baseContext)
-        localContainer.addView(localFrame)
-        // Pass the SurfaceView object to Agora so that it renders the local video.
-        mRtcEngine!!.setupLocalVideo(VideoCanvas(localFrame, VideoCanvas.RENDER_MODE_FIT, 0))
-
-        // Join the channel with a token.
-        mRtcEngine!!.joinChannel(TOKEN, CHANNEL, "", 0)
-    }
-
-    private fun setupRemoteVideo(uid: Int) {
-        val remoteContainer = findViewById<FrameLayout>(R.id.remote_video_view_container)
-
-        val remoteFrame = RtcEngine.CreateRendererView(baseContext)
-        remoteFrame.setZOrderMediaOverlay(true)
-        remoteContainer.addView(remoteFrame)
-        mRtcEngine!!.setupRemoteVideo(VideoCanvas(remoteFrame, VideoCanvas.RENDER_MODE_FIT, uid))
     }
 }
