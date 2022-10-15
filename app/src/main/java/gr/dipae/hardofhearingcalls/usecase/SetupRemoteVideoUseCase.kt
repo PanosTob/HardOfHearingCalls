@@ -1,7 +1,7 @@
 package gr.dipae.hardofhearingcalls.usecase
 
 import android.view.SurfaceView
-import gr.dipae.hardofhearingcalls.data.AgoraIoRepository
+import gr.dipae.hardofhearingcalls.domain.AgoraIoRepository
 import javax.inject.Inject
 
 class SetupRemoteVideoUseCase @Inject constructor(

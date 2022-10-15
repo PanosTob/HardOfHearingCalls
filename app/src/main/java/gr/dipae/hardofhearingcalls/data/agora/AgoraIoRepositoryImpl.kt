@@ -1,8 +1,8 @@
-package gr.dipae.hardofhearingcalls.framework
+package gr.dipae.hardofhearingcalls.data.agora
 
 import android.view.SurfaceView
-import gr.dipae.hardofhearingcalls.data.AgoraIoRepository
-import gr.dipae.hardofhearingcalls.domain.AgoraIoDataSource
+import gr.dipae.hardofhearingcalls.data.agora.AgoraIoDataSource
+import gr.dipae.hardofhearingcalls.domain.AgoraIoRepository
 import javax.inject.Inject
 
 class AgoraIoRepositoryImpl @Inject constructor(

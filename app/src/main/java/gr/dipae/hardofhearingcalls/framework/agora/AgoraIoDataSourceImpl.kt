@@ -1,9 +1,9 @@
-package gr.dipae.hardofhearingcalls.data
+package gr.dipae.hardofhearingcalls.framework.agora
 
 import android.content.Context
 import android.view.SurfaceView
 import dagger.hilt.android.qualifiers.ApplicationContext
-import gr.dipae.hardofhearingcalls.domain.AgoraIoDataSource
+import gr.dipae.hardofhearingcalls.data.agora.AgoraIoDataSource
 import gr.dipae.hardofhearingcalls.utils.CHANNEL
 import gr.dipae.hardofhearingcalls.utils.TOKEN
 import io.agora.rtc2.IRtcEngineEventHandler
