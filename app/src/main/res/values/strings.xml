@@ -6,36 +6,52 @@
     <string name="dialog_action_ok" translatable="false">OK</string>
 
     <!-- App Activity -->
-    <string name="app_rtc_engine_error">Unfortunately something went wrong with joining the communication channel</string>
+    <string name="app_rtc_engine_error">Δυστυχώς κάτι πήγε στραβά με την σύνδεση στα κανάλι επικοινωνίας</string>
+
+    <!-- Error Layout -->
+    <string name="error_label">Σφάλμα</string>
+    <string name="warning_label">Προειδοποίηση</string>
+    <string name="error_generic">Κάτι πήγε στραβά</string>
+    <string name="error_generic_server">Σφάλμα Διακομιστή</string>
+    <string name="error_authentication">Σφάλμα Αυθεντικοποίησης</string>
+    <string name="error_internet_connection">Δεν υπάρχει σύνδεση στο διαδίκτυο</string>
+    <string name="login_wrong_credentials">Τα στοιχεία που δώσατε είναι λανθασμένα</string>
+    <string name="error_invalid_payload">Αποτυχία αποθήκευσης! Κάποια από τα στοιχεία που δώσατε δεν είνα έγκυρα</string>
+    <string name="user_currently_unavailable_error">Ο χρήστης δεν μπορεί αν ειδοποιηθεί αυτή την στιγμή γιατί έχει αποσυνδεθεί</string>
+    <string name="user_already_exists_error">Υπάρχει ήδη κάποιος χρήστης με αυτό το email</string>
+    <string name="error_temporarilly_blocked">Το σύστημα σας έχει μπλοκάρει για μερικά λεπτά. Παρακαλώ προσπαθήστε ξανά σε λίγο</string>
+    <string name="error_payment">"Έχετε ήδη πληρώσει για αυτόν τον μήνα. Θα ενημερωθείτε για την λήξη της συνδρομής σας με ειδοποίηση στο κινητό."</string>
+    <string name="error_payment_not_initialized">Πρέπει πρώτα να εισάγετε την ημερομηνία εγγραφής σας! Επικοινωνήστε με τον Πολυχώρο MEGA.</string>
+    <string name="api_cant_be_reached">Δεν υπάρχει επικοινωνία με τον διακομιστή. Μπορεί να μην είστε συνδεδεμένοι στο διαδίκτυο.</string>
 
     <!-- Login Fragment -->
-    <string name="login_welcome">Welcome To</string>
-    <string name="login_welcome_sub">our teleconferences app for hard of hearing people</string>
-    <string name="login_sign_in_title">Sign in to your account</string>
+    <string name="login_welcome">Καλώς ορίσατε στην</string>
+    <string name="login_welcome_sub">εφαρμογή τηλεδιασκέψεων για βαρήκοους</string>
+    <string name="login_sign_in_title">Συνδεθείτε στον λογαριασμό σας</string>
     <string name="login_email_input_label" translatable="false">Email</string>
-    <string name="login_password_input_label">Password</string>
-    <string name="login_sign_in_button_text">SIGN IN</string>
-    <string name="login_sign_up_question">Don\'t have an account?</string>
-    <string name="login_sign_up_button_text">SIGN UP</string>
+    <string name="login_password_input_label">Κωδικός</string>
+    <string name="login_sign_in_button_text">ΣΥΝΔΕΣΗ</string>
+    <string name="login_sign_up_question">Δεν έχετε λογαριασμό;</string>
+    <string name="login_sign_up_button_text">ΕΓΓΡΑΦΗ</string>
     <string name="login_email_placeholder_text" translatable="false">youremail@example.com</string>
     <string name="login_password_placeholder_text" translatable="false">....</string>
 
     <!-- Register Fragment -->
-    <string name="register_title">Sign up to join and host video calls anytime you want!</string>
-    <string name="register_first_name_label">First Name</string>
-    <string name="register_last_name_label">Last Name</string>
+    <string name="register_title">Κάντε εγγραφή για να κάνετε βιντεοκλήση όποτε θέλετε!</string>
+    <string name="register_first_name_label">Όνομα</string>
+    <string name="register_last_name_label">Επώνυμο</string>
     <string name="register_email_label" translatable="false">Email</string>
-    <string name="register_password_label">Password</string>
-    <string name="register_confirm_password_label">Confirm Password</string>
-    <string name="register_sign_in_question">Already have an account?</string>
-    <string name="register_sign_in_button_text">SIGN IN</string>
+    <string name="register_password_label">Κώδικος</string>
+    <string name="register_confirm_password_label">Επιβεβαίωση κωδικού</string>
+    <string name="register_sign_in_question">Έχετε ήδη λογαριασμό;</string>
+    <string name="register_sign_in_button_text">ΣΥΝΔΕΣΗ</string>
 
     <!-- Lobby Fragment -->
-    <string name="lobby_empty_view_text">You have no contacts online to call</string>
-    
+    <string name="lobby_empty_view_text">Δεν υπάρχουν ενεργές επαφές για κλήση</string>
+
     <!-- Outgoing Call Fragment -->
-    <string name="outgoing_call_title">Outgoing Call</string>
+    <string name="outgoing_call_title">Εξερχόμενη κλήση</string>
 
     <!-- Incoming Call Fragment -->
-    <string name="incoming_call_title">Incoming Call</string>
+    <string name="incoming_call_title">Εισερχόμενη κλήση</string>
 </resources>

@@ -7,7 +7,7 @@ import javax.inject.Inject
 class UpdateUuidUseCase @Inject constructor(
     private val repository: UserRepository
 ) {
-    suspend operator fun invoke(userId: String? = null, uuid: String): UpdateUuidResult {
+    suspend operator fun invoke(userId: String, uuid: String): UpdateUuidResult {
         return try {
             repository.updateUUID(userId, uuid)
             UpdateUuidResult.SUCCESS

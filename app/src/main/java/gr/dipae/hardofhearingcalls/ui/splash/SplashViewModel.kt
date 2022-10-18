@@ -7,12 +7,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import gr.dipae.hardofhearingcalls.ui.base.BaseViewModel
 import gr.dipae.hardofhearingcalls.ui.livedata.SingleLiveEvent
 import gr.dipae.hardofhearingcalls.usecase.user.UpdateUuidUseCase
-import gr.dipae.hardofhearingcalls.utils.PREFS_AUTH_TOKEN
+import gr.dipae.hardofhearingcalls.utils.PREFS_USER_ID
 import gr.dipae.hardofhearingcalls.utils.ext.get
 import gr.dipae.hardofhearingcalls.utils.ext.isNullOrEmptyOrBlank
 import gr.dipae.hardofhearingcalls.utils.ext.uuid
 import kotlinx.coroutines.delay
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -25,13 +24,13 @@ class SplashViewModel @Inject constructor(
     val navigateUI: LiveData<NavDirections> = _navigateUI
 
     private val isNewDevice: Boolean
-        get() = sharedPrefs[PREFS_AUTH_TOKEN, ""].isNullOrEmptyOrBlank
+        get() = sharedPrefs[PREFS_USER_ID, ""].isNullOrEmptyOrBlank
 
     fun initSplash() {
         launch {
             delay(1500)
             if (isNewDevice) {
-                updateUuidUseCase(uuid = sharedPrefs.uuid)
+                updateUuidUseCase(userId = sharedPrefs[PREFS_USER_ID, ""] ?: "", uuid = sharedPrefs.uuid)
                 _navigateUI.value = SplashFragmentDirections.actionSplashToLogin()
                 return@launch
             }

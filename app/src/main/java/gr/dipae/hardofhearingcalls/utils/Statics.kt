@@ -24,7 +24,7 @@ const val API_CANT_BE_REACHED = -10010
 //Shared Preferences Keys
 const val HARD_OF_HEARING_PREFS = "HARD_OF_HEARING_PREFS"
 const val UUID = "UUID"
-const val PREFS_AUTH_TOKEN = "PREFS_AUTH_TOKEN"
+const val PREFS_USER_ID = "PREFS_USER_ID"
 
 // Kotlin
 const val PERMISSION_REQ_ID_RECORD_AUDIO = 22
@@ -35,6 +35,15 @@ val REQUESTED_VIDEO_PERMISSIONS = arrayOf(
     Manifest.permission.CAMERA
 )
 
+//Firestore Database
+const val USERS_TABLE = "users"
+const val USER_FIRSTNAME_KEY = "firstName"
+const val USER_LASTNAME_KEY = "lastName"
+const val USER_USERNAME_KEY = "username"
+const val USER_DEVICE_ID_KEY = "deviceID"
+
+
 const val APP_ID = "3f8f0ecfc29443948ecc6b1fa1505ad6"
-const val TOKEN = "007eJxTYNCKX3zGabVe9ZUzn05+qJ/59ODZ1LXRF86b3Vc+8zWB/fMbBQbjNIs0g9TktGQjSxMTY0sTi9TkZLMkw7REQ1MD08QUM0c+/eRD8QbJrRXpjIwMEAji8zCEpBaXKDhnJOblpeYwMAAA11EnSw=="
+const val TOKEN =
+    "007eJxTYNCKX3zGabVe9ZUzn05+qJ/59ODZ1LXRF86b3Vc+8zWB/fMbBQbjNIs0g9TktGQjSxMTY0sTi9TkZLMkw7REQ1MD08QUM0c+/eRD8QbJrRXpjIwMEAji8zCEpBaXKDhnJOblpeYwMAAA11EnSw=="
 const val CHANNEL = "Test Channel"
