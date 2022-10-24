@@ -25,4 +25,8 @@ class RegisterViewModel @Inject constructor(
     fun handleLoginClicked() {
         _navigateBack.value = Unit
     }
+
+    fun handleRegisterClicked(firstName: String, lastName: String, email: String, password: String, confirmPassword: String) {
+
+    }
 }

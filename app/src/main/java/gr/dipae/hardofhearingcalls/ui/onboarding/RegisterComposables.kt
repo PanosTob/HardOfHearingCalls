@@ -20,6 +20,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import gr.dipae.hardofhearingcalls.R
 import gr.dipae.hardofhearingcalls.ui.base.compose.VerticalSpacerDefault
@@ -31,12 +32,16 @@ import gr.dipae.hardofhearingcalls.utils.compose.AutoSizeText
 
 @Composable
 fun RegisterScreen(viewModel: RegisterViewModel) {
-    RegisterContent(onLoginClicked = viewModel::handleLoginClicked)
+    RegisterContent(
+        onRegisterClicked = viewModel::handleRegisterClicked,
+        onLoginClicked = viewModel::handleLoginClicked
+    )
 }
 
 @Composable
 fun RegisterContent(
-    onLoginClicked: () -> Unit
+    onRegisterClicked: (String, String, String, String, String) -> Unit = { _, _, _, _, _ -> },
+    onLoginClicked: () -> Unit = {}
 ) {
     var firstNameTextValue by remember { mutableStateOf(TextFieldValue()) }
     var lastNameTextValue by remember { mutableStateOf(TextFieldValue()) }
@@ -50,6 +55,7 @@ fun RegisterContent(
         Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
+            .background(primaryColor)
             .imePadding()
             .padding(horizontal = SpacingDefault_16dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -67,9 +73,18 @@ fun RegisterContent(
             Modifier
                 .fillMaxWidth()
                 .background(backgroundColor, shapes.medium)
-                .padding(top = SpacingHalf_8dp, bottom = SpacingDefault_16dp, start = SpacingHalf_8dp, end = SpacingHalf_8dp)
+                .padding(
+                    top = SpacingHalf_8dp,
+                    bottom = SpacingDefault_16dp,
+                    start = SpacingHalf_8dp,
+                    end = SpacingHalf_8dp
+                )
         ) {
-            Text(modifier = Modifier.padding(start = SpacingDefault_16dp), text = stringResource(id = R.string.register_first_name_label), color = secondaryDarkColor)
+            Text(
+                modifier = Modifier.padding(start = SpacingDefault_16dp),
+                text = stringResource(id = R.string.register_first_name_label),
+                color = secondaryDarkColor
+            )
             TextField(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -92,7 +107,11 @@ fun RegisterContent(
                     Text(stringResource(id = R.string.register_first_name_label))
                 }
             )
-            Text(modifier = Modifier.padding(start = SpacingDefault_16dp), text = stringResource(id = R.string.register_last_name_label), color = secondaryDarkColor)
+            Text(
+                modifier = Modifier.padding(start = SpacingDefault_16dp),
+                text = stringResource(id = R.string.register_last_name_label),
+                color = secondaryDarkColor
+            )
             TextField(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -115,7 +134,11 @@ fun RegisterContent(
                     Text(stringResource(id = R.string.register_last_name_label))
                 }
             )
-            Text(modifier = Modifier.padding(start = SpacingDefault_16dp), text = stringResource(id = R.string.login_email_input_label), color = secondaryDarkColor)
+            Text(
+                modifier = Modifier.padding(start = SpacingDefault_16dp),
+                text = stringResource(id = R.string.login_email_input_label),
+                color = secondaryDarkColor
+            )
             TextField(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -138,7 +161,11 @@ fun RegisterContent(
                     Text(stringResource(id = R.string.login_email_placeholder_text))
                 }
             )
-            Text(modifier = Modifier.padding(start = SpacingDefault_16dp), text = stringResource(id = R.string.login_password_input_label), color = secondaryDarkColor)
+            Text(
+                modifier = Modifier.padding(start = SpacingDefault_16dp),
+                text = stringResource(id = R.string.login_password_input_label),
+                color = secondaryDarkColor
+            )
             TextField(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -175,7 +202,11 @@ fun RegisterContent(
                     Text(stringResource(id = R.string.login_password_placeholder_text))
                 }
             )
-            Text(modifier = Modifier.padding(start = SpacingDefault_16dp), text = stringResource(id = R.string.register_confirm_password_label), color = secondaryDarkColor)
+            Text(
+                modifier = Modifier.padding(start = SpacingDefault_16dp),
+                text = stringResource(id = R.string.register_confirm_password_label),
+                color = secondaryDarkColor
+            )
             TextField(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -194,7 +225,8 @@ fun RegisterContent(
                     else painterResource(id = R.drawable.ic_visibility_off)
 
                     // Please provide localized description for accessibility services
-                    val description = if (confirmPasswordVisible) "Hide password" else "Show password"
+                    val description =
+                        if (confirmPasswordVisible) "Hide password" else "Show password"
 
                     IconButton(onClick = { confirmPasswordVisible = !confirmPasswordVisible }) {
                         Icon(painter = image, description, tint = secondaryColor)
@@ -220,14 +252,32 @@ fun RegisterContent(
             Modifier
                 .fillMaxWidth()
                 .background(secondaryDarkColor, shapes.medium)
+                .clickable {
+                    onRegisterClicked(
+                        firstNameTextValue.text,
+                        lastNameTextValue.text,
+                        emailTextValue.text,
+                        passwordTextValue.text,
+                        confirmPasswordTextValue.text
+                    )
+                }
                 .padding(vertical = SpacingQuarter_4dp),
             contentAlignment = Alignment.Center
         ) {
-            AutoSizeText(text = stringResource(id = R.string.login_sign_up_button_text), style = hardOfHearingCallsTypography.button, maxFontSize = 18.sp, color = backgroundColor)
+            AutoSizeText(
+                text = stringResource(id = R.string.login_sign_up_button_text),
+                style = hardOfHearingCallsTypography.button,
+                maxFontSize = 18.sp,
+                color = backgroundColor
+            )
         }
         VerticalSpacerDefault()
         VerticalSpacerHalf()
-        Text(text = stringResource(id = R.string.register_sign_in_question), style = hardOfHearingCallsTypography.body1, color = secondaryDarkColor)
+        Text(
+            text = stringResource(id = R.string.register_sign_in_question),
+            style = hardOfHearingCallsTypography.body1,
+            color = secondaryDarkColor
+        )
         VerticalSpacerQuarter()
         Text(
             modifier = Modifier.clickable { onLoginClicked() },
@@ -237,4 +287,10 @@ fun RegisterContent(
             fontSize = 18.sp
         )
     }
+}
+
+@Preview
+@Composable
+fun RegisterContentPreview() {
+    RegisterContent()
 }
