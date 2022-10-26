@@ -10,8 +10,8 @@ import javax.inject.Inject
 class UserRepositoryImpl @Inject constructor(
     private val dataSource: UserDataSource
 ) : UserRepository {
-    override suspend fun updateUUID(userId: String, uuid: String) {
-        dataSource.updateUUID(userId, uuid)
+    override suspend fun updateUUID(uuid: String) {
+        dataSource.updateUUID(uuid)
     }
 
     override suspend fun registerUser(request: RegistrationRequest) {

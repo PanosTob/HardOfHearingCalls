@@ -45,6 +45,7 @@
     <string name="register_confirm_password_label">Επιβεβαίωση κωδικού</string>
     <string name="register_sign_in_question">Έχετε ήδη λογαριασμό;</string>
     <string name="register_sign_in_button_text">ΣΥΝΔΕΣΗ</string>
+    <string name="register_error_confirm_password">Ο κωδικός επιβεβαίωσης πρέπει να συμπίπτει με τον παραπάνω κωδικό.</string>
 
     <!-- Lobby Fragment -->
     <string name="lobby_empty_view_text">Δεν υπάρχουν ενεργές επαφές για κλήση</string>

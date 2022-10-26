@@ -29,10 +29,10 @@ class UserDataSourceImpl @Inject constructor(
         )
     }*/
 
-    override suspend fun updateUUID(userId: String, uuid: String) {
-        if (!userAlreadyExists(userId)) {
+    override suspend fun updateUUID(uuid: String) {
+        if (!userAlreadyExists()) {
             firebaseCall {
-                saveNewUuid(userId, uuid)
+                saveNewUuid(uuid)
             }
         }
     }
@@ -63,10 +63,10 @@ class UserDataSourceImpl @Inject constructor(
         }
     }
 
-    private suspend fun saveNewUuid(userId: String, uuid: String): Any {
+    private suspend fun saveNewUuid(uuid: String): Any {
         mAuth.currentUser?.let {
             return firebaseCall {
-                firebaseFirestore.collection(USERS_TABLE).document(userId)
+                firebaseFirestore.collection(USERS_TABLE).document(it.uid)
                     .update(USER_DEVICE_ID_KEY, uuid).await()
             }
         } ?: throw BaseException(AUTHENTICATION_ERROR_CODE)
@@ -78,7 +78,7 @@ class UserDataSourceImpl @Inject constructor(
         }
         mAuth.currentUser?.let {
             return firebaseCall {
-                if (!userAlreadyExists(user.username)) {
+                if (!userAlreadyExists()) {
                     firebaseFirestore.collection(USERS_TABLE).document(it.uid)
                         .set(
                             hashMapOf(
@@ -95,10 +95,12 @@ class UserDataSourceImpl @Inject constructor(
         } ?: throw BaseException(AUTHENTICATION_ERROR_CODE)
     }
 
-    private suspend fun userAlreadyExists(userId: String): Boolean {
-        return firebaseCall {
-            val userDoc = firebaseFirestore.collection(USERS_TABLE).document(userId).get(Source.SERVER).await()
-            userDoc.exists()
-        }
+    private suspend fun userAlreadyExists(): Boolean {
+        return mAuth.currentUser?.let {
+            return firebaseCall {
+                val userDoc = firebaseFirestore.collection(USERS_TABLE).document(it.uid).get(Source.SERVER).await()
+                userDoc.exists()
+            }
+        } ?: false
     }
 }

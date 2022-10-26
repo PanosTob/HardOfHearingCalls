@@ -32,12 +32,16 @@ import gr.dipae.hardofhearingcalls.utils.compose.AutoSizeText
 
 @Composable
 fun LoginScreen(viewModel: LoginViewModel) {
-    LoginContent(viewModel::handleRegisterClicked)
+    LoginContent(
+        viewModel::handleLogin,
+        viewModel::handleRegisterClicked
+    )
 }
 
 @Composable
 fun LoginContent(
-    onRegisterClicked: () -> Unit
+    onLoginClicked: (String, String) -> Unit = { _, _ -> },
+    onRegisterClicked: () -> Unit = {}
 ) {
     var emailTextValue by remember { mutableStateOf(TextFieldValue()) }
     var passwordTextValue by remember { mutableStateOf(TextFieldValue()) }
@@ -146,6 +150,7 @@ fun LoginContent(
             Modifier
                 .fillMaxWidth()
                 .background(secondaryDarkColor, shapes.medium)
+                .clickable { onLoginClicked(emailTextValue.text, passwordTextValue.text) }
                 .padding(vertical = SpacingQuarter_4dp),
             contentAlignment = Alignment.Center
         ) {

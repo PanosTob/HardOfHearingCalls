@@ -24,7 +24,6 @@ const val API_CANT_BE_REACHED = -10010
 //Shared Preferences Keys
 const val HARD_OF_HEARING_PREFS = "HARD_OF_HEARING_PREFS"
 const val UUID = "UUID"
-const val PREFS_USER_ID = "PREFS_USER_ID"
 
 // Kotlin
 const val PERMISSION_REQ_ID_RECORD_AUDIO = 22
