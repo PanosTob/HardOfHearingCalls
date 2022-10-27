@@ -3,17 +3,14 @@ package gr.dipae.hardofhearingcalls.ui.call
 import android.os.Bundle
 import android.view.SurfaceView
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import gr.dipae.hardofhearingcalls.R
-import gr.dipae.hardofhearingcalls.databinding.FragmentComposeBinding
 import gr.dipae.hardofhearingcalls.databinding.FragmentVideoCallBinding
 import gr.dipae.hardofhearingcalls.ui.base.BaseFragment
-import gr.dipae.hardofhearingcalls.ui.call.compose.VideoTranslationScreen
-import gr.dipae.hardofhearingcalls.ui.theme.HardOfHearingCallsTheme
 
 class VideoTranslationFragment: BaseFragment<FragmentVideoCallBinding>() {
     override fun getViewBinding(): FragmentVideoCallBinding = FragmentVideoCallBinding.inflate(layoutInflater)
@@ -33,6 +30,11 @@ class VideoTranslationFragment: BaseFragment<FragmentVideoCallBinding>() {
             userJoinedErrorUI.observe(viewLifecycleOwner, Observer(::userJoinedError))
             remoteContainerUI.observe(viewLifecycleOwner, Observer(::setupRemoteContainer))
             localFrameUI.observe(viewLifecycleOwner, Observer(::setupLocalFrame))
+            remoteFrameVisibilityUI.observe(viewLifecycleOwner, Observer(::remoteFrameVisibility))
+            localFrameVisibilityUI.observe(viewLifecycleOwner, Observer(::localFrameVisibility))
+            showMessageUI.observe(viewLifecycleOwner, Observer(::showMessage))
+
+            initVideoTranslation()
         }
     }
 
@@ -63,5 +65,22 @@ class VideoTranslationFragment: BaseFragment<FragmentVideoCallBinding>() {
 
     private fun setupLocalFrame(localFrame: SurfaceView) {
         binding.localVideoViewContainer.addView(localFrame)
+    }
+
+    private fun remoteFrameVisibility(visibility: Boolean) {
+        binding.remoteVideoViewContainer.isVisible = visibility
+    }
+
+    private fun localFrameVisibility(visibility: Boolean) {
+        binding.localVideoViewContainer.isVisible = visibility
+    }
+
+    private fun showMessage(stringRes: Int) {
+        Toast.makeText(activity, getString(stringRes), Toast.LENGTH_LONG).show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.leaveChannel()
     }
 }

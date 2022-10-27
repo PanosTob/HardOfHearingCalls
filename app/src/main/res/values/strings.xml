@@ -55,4 +55,7 @@
 
     <!-- Incoming Call Fragment -->
     <string name="incoming_call_title">Εισερχόμενη κλήση</string>
+
+    <!-- Video Translation Fragment -->
+    <string name="video_translation_left_channel">Αποχωρήσατε από την βιντεοκλήση</string>
 </resources>

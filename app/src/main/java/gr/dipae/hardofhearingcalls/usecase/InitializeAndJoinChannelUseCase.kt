@@ -8,7 +8,19 @@ class InitializeAndJoinChannelUseCase @Inject constructor(
     private val repository: AgoraIoRepository
 ) {
 
-    operator fun invoke(userJoinCallBack: (Int) -> Unit, userJoinErrorCallBack: () -> Unit, onSetupLocalFrame: (SurfaceView) -> Unit) {
-        repository.initializeAndJoinChannel(userJoinCallBack, userJoinErrorCallBack, onSetupLocalFrame)
+    operator fun invoke(
+        userJoinCallBack: (Int) -> Unit,
+        userJoinErrorCallBack: () -> Unit,
+        onSetupLocalFrame: (SurfaceView) -> Unit,
+        onJoinedSuccessChannel: () -> Unit,
+        onUserOffline: () -> Unit
+    ) {
+        repository.initializeAndJoinChannel(
+            userJoinCallBack,
+            userJoinErrorCallBack,
+            onSetupLocalFrame,
+            onJoinedSuccessChannel,
+            onUserOffline
+        )
     }
 }

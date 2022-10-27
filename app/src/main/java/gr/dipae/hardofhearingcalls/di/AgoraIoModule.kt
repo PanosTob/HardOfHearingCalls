@@ -8,13 +8,13 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityRetainedComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import gr.dipae.hardofhearingcalls.framework.agora.AgoraIoDataSourceImpl
-import gr.dipae.hardofhearingcalls.domain.AgoraIoRepository
 import gr.dipae.hardofhearingcalls.data.agora.AgoraIoDataSource
 import gr.dipae.hardofhearingcalls.data.agora.AgoraIoRepositoryImpl
+import gr.dipae.hardofhearingcalls.domain.AgoraIoRepository
+import gr.dipae.hardofhearingcalls.framework.agora.AgoraIoDataSourceImpl
 import gr.dipae.hardofhearingcalls.utils.APP_ID
-import io.agora.rtc2.IRtcEngineEventHandler
 import io.agora.rtc2.RtcEngine
+import io.agora.rtc2.RtcEngineConfig
 import javax.inject.Singleton
 
 @Module
@@ -24,11 +24,10 @@ object AgoraIoModule {
     @Provides
     @Singleton
     fun provideMRtcEngine(@ApplicationContext context: Context): RtcEngine {
-        return RtcEngine.create(
-            context,
-            APP_ID,
-            object: IRtcEngineEventHandler() {}
-        )
+        val config = RtcEngineConfig()
+        config.mAppId = APP_ID
+        config.mContext = context
+        return RtcEngine.create(config)
     }
 }
 

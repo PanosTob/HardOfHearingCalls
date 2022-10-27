@@ -19,7 +19,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import gr.dipae.hardofhearingcalls.R
@@ -61,12 +60,12 @@ fun RegisterContent(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         VerticalSpacerDouble()
-        Text(
+        /*Text(
             modifier = Modifier.fillMaxWidth(), text = stringResource(id = R.string.register_title),
             color = secondaryDarkColor,
             style = hardOfHearingCallsTypography.h5,
             textAlign = TextAlign.Center
-        )
+        )*/
 
         VerticalSpacerDouble()
         Column(

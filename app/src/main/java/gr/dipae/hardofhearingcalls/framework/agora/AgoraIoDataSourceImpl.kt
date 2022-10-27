@@ -19,7 +19,9 @@ class AgoraIoDataSourceImpl @Inject constructor(
     override fun initializeAndJoinChannel(
         userJoinCallBack: (Int) -> Unit,
         userJoinErrorCallBack: () -> Unit,
-        onSetupLocalFrame: (SurfaceView) -> Unit
+        onSetupLocalFrame: (SurfaceView) -> Unit,
+        onJoinedSuccessChannel: () -> Unit,
+        onUserOffline: () -> Unit
     ) {
         try {
             mRtcEngine.addHandler(
@@ -27,6 +29,14 @@ class AgoraIoDataSourceImpl @Inject constructor(
                     // Listen for the remote user joining the channel to get the uid of the user.
                     override fun onUserJoined(uid: Int, elapsed: Int) {
                         userJoinCallBack(uid)
+                    }
+
+                    override fun onJoinChannelSuccess(channel: String?, uid: Int, elapsed: Int) {
+
+                    }
+
+                    override fun onUserOffline(uid: Int, reason: Int) {
+
                     }
                 })
         } catch (e: Exception) {
